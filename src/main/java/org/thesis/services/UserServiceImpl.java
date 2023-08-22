@@ -7,8 +7,6 @@ import org.thesis.models.User;
 import org.thesis.models.UserRegistrationRequest;
 import org.thesis.repositories.UserRepository;
 
-import java.util.Objects;
-
 @Service
 public class UserServiceImpl implements UserService {
 
