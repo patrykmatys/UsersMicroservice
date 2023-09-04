@@ -22,10 +22,18 @@ public class UserController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticateUser(@RequestBody UserRegistrationRequest registrationRequest) {
-        if (userService.authenticateUser(registrationRequest)) {
-            return ResponseEntity.ok("User authenticated");
+        String token = userService.authenticateUser(registrationRequest);
+
+        if (token != null) {
+            return ResponseEntity.ok(token);
         } else {
             return ResponseEntity.status(403).body("User not authenticated");
         }
     }
+
+    @PostMapping("/validate")
+    public ResponseEntity<Boolean> validateToken(@RequestBody String token) {
+        return ResponseEntity.status(200).body(userService.validateToken(token));
+    }
+
 }

@@ -3,6 +3,7 @@ package org.thesis.services;
 import org.thesis.models.UserRegistrationRequest;
 
 public interface UserService {
-    void registerNewUser(UserRegistrationRequest user);
-    boolean authenticateUser(UserRegistrationRequest user);
+    String registerNewUser(UserRegistrationRequest user);
+    String authenticateUser(UserRegistrationRequest user);
+    Boolean validateToken(String token);
 }
